@@ -482,3 +482,8 @@ hr.thin {
         bottom: 0;
     }
 }
+
+.fa {
+	font-size: 22px !important;
+	padding-left: 5px;
+}

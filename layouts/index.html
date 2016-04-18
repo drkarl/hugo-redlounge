@@ -10,6 +10,7 @@
           <div class="posts">
             {{ $Site := .Site }}
             {{ range .Site.Pages }}
+              {{ if not .Params.menu }}
             <section  class="post">
                 <header class="post-header">
                     {{ if .Params.thumbnail }}
@@ -48,6 +49,7 @@
                   <a href="{{ .RelPermalink }}"><span class="read-more-slashes">//</span>Read More...</a>
               </div>
           </section>
+          {{ end }}
           {{ end }}
         </div>
 

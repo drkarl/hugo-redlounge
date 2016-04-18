@@ -28,12 +28,14 @@
 		    {{ end }}
 	    {{ end }}
   		<section class="post">
+            {{ if not .Params.notitle }}
             <h1 class="post-title">
               <a href="{{ .RelPermalink }}">{{ .Title }}</a>
             </h1>
             <h3 class="post-subtitle">
             	{{ .Params.subtitle }}
             </h3>
+            {{ end }}
             {{ if not .Params.nodate }}
             	<span class="post-date">
                 	<span class="post-date-day"><sup>{{ .Date.Format "2" }}</sup></span><span class="post-date-separator">/</span><span class="post-date-month">{{ .Date.Format "Jan" }}</span> <span class="post-date-year">{{ .Date.Format "2006" }}</span>
@@ -100,10 +102,13 @@
             {{ end }}
           </section>
           {{ if not .Params.nocomment }}
-          	{{ template "_internal/disqus.html" . }}
+          	<script data-isso="http://comments.drk.pw" src="//comments.drk.pw/js/embed.min.js"></script>
+			<section id="isso-thread"></section>
           {{ end }}
-        
+
+   {{ if not .Params.notitle }}
       {{ partial "footer.html" . }}
+    {{ end }}
     </div>
   </div>
 	{{ if .Params.totop }}
